@@ -1,0 +1,29 @@
+name: restgui
+version: 0.0.1
+cabal-version: >=1.2
+build-type: Simple
+license: AllRightsReserved
+license-file: ""
+maintainer: Markus Mayr
+stability: experimental
+synopsis: Providing a GUI per REST Operations
+description: This is an experiment to keep any state at the level nearest to the user.
+author: Markus Mayr
+data-dir: ""
+ 
+executable restgui
+    build-depends: HTTP -any, QuickCheck -any, base -any, mtl -any,
+                   scotty -any, text -any, wai -any, wai-extra -any
+    main-is: Main.hs
+    buildable: True
+    hs-source-dirs: src
+    other-modules: Guiserver Calculator Operationserver
+ 
+test-suite test-restgui
+    build-depends: HTTP -any, QuickCheck -any, base -any, mtl -any,
+                   scotty -any, text -any, wai -any, wai-extra -any
+    type: exitcode-stdio-1.0
+    main-is: Main.hs
+    buildable: True
+    cpp-options: -DMAIN_FUNCTION=testMain
+    hs-source-dirs: src
